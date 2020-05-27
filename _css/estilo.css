@@ -1,0 +1,264 @@
+@charset "UTF-8"; 
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
+@font-face{
+	font-family: FonteLogo;
+	src: url("../_fonts/bubblegum-sans-regular.otf");
+} /* 1 - Possibilita acentos
+2 - Importa uma fonte
+3 - Acessa uma fonte dos documentos*/
+	
+body{ 
+		background-color:#dddddd; /* Cor de fundo*/
+		color: rgba(0,0,0,1); /* Cor da fonte */
+		font-family: Arial, sans-serif;
+		
+}
+
+
+p{ 
+	text-align: justify;  /* Alinha o texto: justificado*/
+	text-indent: 50px; /* Espaço de indentação: 50px*/
+} 
+
+a{
+	color: #606060;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+div#interface{
+	width: 900px; /* Espaço da interface: 900px*/
+	background-color: #ffffff; /* Cor de fundo*/
+	margin: -20px auto 10px auto; /* Cima, direira, baixo e esquerda*/
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, .5); /* Sombreamento */
+	padding: 10px 10px 10px 10px; /* Espaço interno */
+}
+
+header#cabecalho img#icone{
+	position: absolute; /* posição absoluta */
+	left: 930px; /* Distanciamento 930px da esquerda*/
+	top: 70px; /* Distanciamento 70px do topo */
+}
+
+header#cabecalho{
+	border-bottom: 1px #606060 solid; /* Borda abaixo */
+	height: 150px; /* Altura 150 px */
+	background: url(../_imagens/glass-logo-peq.jpg) no-repeat 0px 80px; /* Insere uma imagem como fundo
+	P.S: Útil para inserir imagem como se ela não fosse uma 'imagem'*/
+}
+
+header#cabecalho h1{
+	font-family: FonteLogo, sans-serif; /* Define fonte */
+	font-size: 30pt; /* Tamanho */
+	color: #606060; /* Cor */
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .6); /* Sombra */
+	padding: 0px; /* Distância interna*/
+	margin-bottom: 0px; /* Distância da margem de baixo*/
+}
+
+header#cabecalho h2{
+	font-family: 'Titillium Web', sans-serif; /* Família da fonte */
+	font-size:15pt; /* Tamango */
+	color: #888888; /* Cor */
+	padding: 0px; /* Distância interna */ 
+	margin-top: 0px;  /* Distância da margem do topo */
+}
+
+/* Formatação das Imagens */
+
+figure.foto-legenda{ /* Tudo que envolve foto-legenda*/
+	position: relative; /*Fica em um lugar relativo ao código HTML, ou seja fica em seu lugar. Isso é necessário pois, 
+	caso a classe pai não tenha uma posição definida, as classes filho irão tomar como base a página por si. Usando o relative
+	as suas respectivas classes filhos o tomarão como base*/ 
+	border: 8px solid white; /* Definindo borda */ 
+	box-shadow: 1px 1px 4px black /* Definindo sombra*/
+}
+
+figure.foto-legenda img{ /* Apenas as imagens dentro de foto-legenda*/
+	width: 100%; 
+	height: 100%; /* Largura e altura definidas em 100%, para não vazar da borda, pois assim seu tamanho é contínuo em relação ao site*/ 
+}
+
+figure.foto-legenda figcaption{ /*Apenas para as legendas, os figcaption, filho do figure */
+	opacity: 0; /* Opacidade 0 */
+	position: absolute; /* Ou seja, posição absoluta, é posicionado exatamente onde queremos, em relação ao seu primeiro referencial
+	que é uma classe pai, que esteja em uma posição relativa ou absoluta, se não houver, toma como base o site*/
+	top: 0px; /* Topo, em relação à classe pai, na posição 0*/
+	background-color: rgba(0,0,0,0.4); /* Fundo da legenda*/
+	color: white; /* Cor do texto da legenda */ 
+	width: 100%;
+	height: 100%; /* Faz com que o fundo preto ocupe toda a imagem*/
+	padding: 10px; /* Distancia em 10px em relação à borda*/
+	box-sizing: border-box; /* Cria um box ao redor da borda*/
+	transition: opacity 1s; /* Sempre que a opacidade mudar, há uma transição de 1s*/
+}
+
+figure.foto-legenda:hover figcaption{ /* Relação do mouse com a imagem e a legenda */
+	opacity: 1; /* Quando passar o mouse sempre a imagem, a opacidade do figcaption muda para 1*/
+}
+
+				/* Formatação do Menu */
+
+nav#menu{
+	display: block; /* Define como um bloco */
+}
+
+nav#menu ul{
+	list-style: none; /* Tira qualquer formatação da lista*/
+	text-transform: uppercase; /* Deixa tudo em maiúsculo */
+	position: absolute; /* Como não queremos usar o nav#menu de referência, 
+	usamos a posição absoluta para se referenciar à todo website. 
+	Absolute acaba se tornando independente, ele fica fora das configurações do container. 
+	Tudo o que estiver dentro do contâiner é relativo, varia junto com as configurações do contâiner*/
+	top: -20px; /* Distância do topo -20px*/
+	left: 400px; /* Distância da esquerda 400px*/
+}
+
+nav#menu li{
+	display: inline-block; /* Difine como blocos em uma linha*/
+	background-color: #dddddd; /* Define cor de fundo*/
+	padding: 10px; /* Espaço DENTRO do objeto*/
+	margin: 2px; /* espaço FORA do objeto */ 
+	transition: background-color 1s; /* Transição de 1s quando há mudança de background*/
+}
+
+nav#menu li:hover{
+	background-color: #606060; /* Quando o mouse passar por cima, troca a cor de fundo*/
+}
+
+nav#menu h1{
+	display: none; /* Não aparece */
+}
+
+nav#menu a{
+	color: #000000; /* Cor */
+	text-decoration: none; /* Tira qualquer decoração */
+}
+nav#menu a:hover{
+	color: #ffffff; /* Troca de cor quando o mouse passar por cima*/
+	text-decoration: underline; /* O texto passe a ser sublinhado*/
+
+}
+
+section#corpo{
+	display: block; /* Deixa em bloco*/
+	width: 500px; /* Tamanho de 520 px*/
+	float: left; /* 'Flutua' para a esquerda, ou seja, fica posicionado à esquerda*/
+	border-right: 1px solid #606060; /* Define borda*/
+	padding-right: 15px; /* Define distância interna*/
+}
+article#noticia-principal h2{
+	font-size: 13pt;
+	color: #606060;
+	background-color: #dddddd;
+	padding: 5px 0px 5px 10px;
+	margin: 10px 0px 10px 0px;
+}
+
+header#cabecalho-artigo h1{
+	font-family: FonteLogo, sans-serif; /*Caso não funcione a FonteLogo ele troca pra sans-serif*/
+	font-size: 20pt;
+	color: #606060;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+header#cabecalho-artigo h2{
+	font-size: 13pt;
+	color: #cecece;
+	background-color: #ffffff;
+	margin: 0px;
+}
+
+header#cabecalho-artigo h3{
+	font-size: 12pt;
+	color: #606060;
+}
+
+
+.direita{
+	text-align: right;
+	}/*Formatação genérica da classe direita*/
+
+table#tabelaspec{
+	border: 1px solid #606060;
+	border-spacing: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table#tabelaspec td{
+	border: 1px solid #606060;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+table#tabelaspec td.ce{
+	text-align: right;
+	color: white;
+	background-color: #606060;
+	vertical-align: top;
+	font-weight: bold;
+}
+
+table#tabelaspec td.cd{ /*Para acessar uma classe usamos .nome_da_classe*/
+	text-align: left;
+	background-color: #cecece;
+}
+
+table#tabelaspec caption{
+	color: #888888;
+	font-size: 13pt;
+	font-weight: bolder;
+}
+
+table#tabelaspec caption span{ /* Dica para manter tudo no caption, mas com uma formatação diferente*/
+	display: block; /* Separo o texto como um bloco*/ 
+	float: right; /* Flutua à direita do bloco principal*/
+	color: black; /* Cor rpeta*/
+	font-size: 8pt;  
+	margin-top: 10pt; /*Aumento a mergem do topo para abaixar o bloco*/
+
+}
+
+aside#lateral{
+	display: block; /* Deixa em bloco*/
+	width: 350px; /* Tamanho */
+	float: right; /* Flutua para a direita*/
+	background-color: #dddddd;
+	margin-top: 10px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, .5);
+	padding: 10px;
+}
+
+aside#lateral h1{
+	font-family: FonteLogo, sans-serif;
+	font-size: 20pt;
+	color: #606060;
+	margin-top: 0px;
+}
+
+aside#lateral h2{
+	background-color: #606060;
+	font-size: 13pt;
+	color: white;
+	padding: 5px;
+}
+
+footer#rodape{
+	clear: both; /* Limpa as configurações de float anteriores*/
+	border-top: 1px solid #606060; /* Define borda */
+}
+
+footer#rodape p{
+	text-align: center; /* Fica posicionado no centro*/
+}
+
+
+/* Posição absoluta e relativa: 
+
+Posição Absoluta: Se refere ao site como um todo
+Posição Relativa: Se refere sempre ao contâiner que a tag está inserida*/

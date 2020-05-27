@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!--Língua -->
+    <head>
+        <meta charset="UTF-8"/> <!-- Possibilitar acentos -->
+        <title>Tudo Sobre Google Glass </title>
+        <link rel="stylesheet" type="text/css" href="_css/estilo.css"/> <!--Acessar estilos css -->
+        <link rel="stylesheet" type="text/css" href="_css/form.css">
+        <script type="text/javascript" src="_javascript/funcoes.js"> </script>
+        <script type="text/javascript">
+            function calc_total(){
+                var qtd = parseInt(document.getElementById('cQtd').value);  /* Realiza a conversão para inteiro*/
+                tot = qtd * 1500;
+                document.getElementById('cTot').value = tot; /* Passa para a value do id Ctot o valor de tot*/
+            }
+        </script>
+    </head>
+    <body>
+        <div id="interface">  <!-- A divisão da pagina, que é a interface-->
+            <header id="cabecalho"> <!-- Cabeçalho -->
+                <hgroup> 
+                    <h1> Google Glass </h1>
+                    <h2> A revolução do Google está chegando </h2>
+                </hgroup> 
+
+                <img id="icone" src="_imagens/contato.png"/> <!-- Inserir imagem -->
+
+                <nav id="menu">
+                    <h1> Menu Principal </h1>
+                    <ul>    
+                        <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"> <a href="index.html">Home </a> </li>
+                        <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"> <a href="specs.html">Especificações </a></li>
+                        <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"> <a href="fotos.html"> Fotos </a> </li>
+                        <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"> <a href="multimidia.html"> Multimídia </a> </li>
+                        <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"> <a href="fale-conosco.html"> Fale conosco </a> </li> <!-- Link para abrir na mesma aba-->
+                    </ul>
+                </nav>
+            </header>
+
+            <section id="corpo-full"> <!-- Declarar corpo principal ou sessão -->
+                <article id="noticia-principal">
+                    <header id="cabecalho-artigo">
+                        <hgroup>
+                            <h3>Fale Conosco >  &nbsp;<!-- Espaçamento-->Contato</h3>
+                            <h1>Formulário de Contato</h1>
+                            <h2>por Gustavo Guanabara</h2>
+                            <h3 class="direita">Atualizado em 01/Maio/2013</h3>
+                        </hgroup>
+                    </header>
+
+                    <form method="post" id="fContato" action="mailto:dyogoromagnabendo@gmail.com" oninput="calc_total();"> <!-- Metohd: get - Todos os dados, de todos os campos, são colocados na URL-
+                        Metod: post - Envia via pacotes diretamente para o site
+                        Action: Para onde os dados serão enviados
+                        Mailto: envia um e-mail com os dados, o e-mail precisa ser configurado na máquina
+                        Para tratar os dados, deve-se usar outra línguagem, como PHP
+                        Oninput: Quando digitar algo ele dispara uma ação-->
+                        <fieldset id="usuario"> <!-- Conjunto de campos-->
+                            <legend>Identificação do Usuário</legend> <!-- "Título" de cada área-->
+                            <p> <label for="cNome"> Nome: </label> <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"> </p> <!-- Tag input pode ser usada para várias objetos, principalmente dentro de formulários, no caso usaremos o text, que é uma caixa de texto
+                            Size se refere ao tamanho de caracteres que aparecem por vez
+                            maxlenght limita o tamanho de carateres que pode ser escrito
+                            Placeholder serve para ter um texto que serve de dica, enquanto o usuário não escreve-->
+                            <p> <label for="cSenha">Senha: </label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+                            <p> <label for="cMail">E-mail: </label> <input type="email" name="tMail" id="cMail" size="20" maxlength="40"></p> <!-- Tipo e-mail serve para o navegador identificar se está segundo a norma de e-mail --> 
+                            <fieldset id="sexo">
+                                <legend>Sexo</legend>
+                                    <input type="radio" name="tSexo" id="cMasc" checked> <label for="cMasc">Masculino </label> <br> <!-- Membros do mesmo grupo devem ter o mesmo NAME, assim quando selecionar um, deseleciona o outro. Caso contrário, eles não tem nenhum relação e não tem como deselecionar-->
+                                    <!-- Label (rótulo) servem pra referenciar os objetos ao seu id, tem valor semântico e prático-->
+                                    <!-- Checked, caso queira deixar alguma opção pré-marcada-->
+                                    <input type="radio" name="tSexo" id="cFem"> <label for="cFem">Feminino</label>
+                            </fieldset>
+                            <p> <label for="cNasc"> Data de Nascimento:</label> <input type="date" name="tNasc" id="cNasc"></p>
+                        </fieldset>
+
+                        <fieldset id="endereco">
+                            <legend>Endereço do Usuário</legend>
+                            <p> <label for="cRua"> Logradouro: </label> <input type="text" name="tRua" id="cRua" size="13" maxlength="80" placeholder="Rua, Av, Trav,..."></p>
+                            <p> <label for="cNum"> Número: </label> <input type="number" name="tNum" id="cNum" min="0" max="9999"></p>  
+                            <p> <label for="cEst">Estado: </label>
+                                <select name="tEst" id="cEst">  <!-- Serve para dar opções que serão selecionadas-->
+
+                                    <optgroup label="Região Sudeste"> <!-- Cria um grupo de escolha e o Label nesse caso serve como subtítulo também-->
+                                        <option value="RJ"> Rio de Janeiro</option> <!-- Value seria caso eu queria que seja enviado um valor diferente da opção, quando a opção for selecionada-->
+                                        <option value="SP" selected> São Paulo </option> <!-- O selected faz com que a opção apareça já na caixa -->
+                                        <option value="MG"> Minas Gerais </option>
+                                    </optgroup>
+
+                                    <optgroup label="Região Sul">
+                                        <option value="PR"> Paraná </option>
+                                        <option value="SC"> Santa Catarina </option>
+                                        <option value="RS"> Rio Grande do Sul</option>
+                                    </optgroup>
+
+                                </select> </p>
+                            <p> <label for="cCid"> Cidade: </label>
+                                <input type="text" name="tCid" id="cCid" maxlength="40" size="20" placeholder="Sua Cidade" list="cidades"></p> <!-- Parâmetro list insere uma lista-->
+                                <datalist id="cidades">  <!-- Cria uma lista de dados-->
+                                    <option value="Rio de Janeiro"> </option>
+                                    <option value="Nova Iguaçu"></option>
+                                    <option value="Niterói"> </option>
+                                    <option value="Belford Roxo"></option>
+                                </datalist>
+                                <!-- Junção desses dois faz com que tenha a opção para auto-completar quando o usuário estiver digitando-->
+                        </fieldset>
+
+                        <fieldset id="mensagem">
+                            <legend>Mensagem do Usuário</legend>
+                            <p><label for="cUrg">Grau de Urgência: </label>
+                                0 <input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2"> 10</p> <!-- Cria uma barrinha, tipo de som--> 
+                                <!-- Step é o salto que ocorre a cada mudança-->
+                            <p><label for="cMsg">Mensagem:</label>
+                                <textarea name="tMsg" id="cMsg" cols="45" rows="5" placeholder="Deixe aqui sua mensagem"></textarea></p> <!-- É uma parte maior que a de texto para escrever, com várias linhas-->
+                        </fieldset>
+
+                        <fieldset id="pedido">
+                            <legend >Quero um Google Glass</legend>
+                            <p><input type="checkbox" name="tPed" id="cPed" checked>
+                                <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                            <p> <label for="cCor">Cor:</label>
+                                <input type="color" name="tCor" id="cCor" value="#ffffff"> </p><!-- Para cores, nesse caso o value deixa a cor padrão-->
+                            <p><label for="cQtd">Quantidade:</label>
+                                <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"></p>
+                            <p><label for="cTot">Preço Total: R$</label>
+                                <input type="text" name="tTot" id="cTot" placeholder="Total a pagar" readonly></p>
+                                <!-- ReadOnly permite apenas a leitura, impossibilitando a edição/escrita-->
+                        </fieldset>
+
+                        <!-- <input type="submit" value="Enviar">  Serve para criar um botão de enviar-->
+                        <input type="image" src="_imagens/botao-enviar.png" name="tEnviar"> <!-- Também cria um botão de enviar-->
+                        
+                    </form>
+                </article>
+            </section>
+
+
+<footer id="rodape"> <!-- Declarar rodapé -->
+                <p>Copyright &copy; 2013 - by Gustavo Guanabara <br>
+                <a href="http://facebook.com" target="blank"> Facebook </a> | <a href="http://twitter.com" target="blank"> Twitter </a> </p> <!-- Acessar link em outra aba     -->
+            </footer>
+
+        </div>
+    </body>
+</html>
